@@ -5,14 +5,14 @@ app = Flask(__name__)
 
 books = []
 
-# Create a new book
+
 @app.route('/books', methods=['POST'])
 def create_book():
     book = request.get_json()
     books.append(book)
     return jsonify({"message": "Book added successfully"}), 201
 
-# Get all books
+
 @app.route('/books', methods=['GET'])
 def get_books():
     return jsonify(books)
